@@ -22,12 +22,15 @@
 
     html {
       scroll-behavior: smooth;
+      overflow-x: hidden;
     }
 
     body {
       margin: 0;
       color: var(--black);
-      font-family: "Pretendard", "Noto Sans KR", "Apple SD Gothic Neo", Arial, sans-serif;
+      width: 100%;
+      overflow-x: hidden;
+      font-family: "A2Z", "Pretendard", "Noto Sans KR", "Apple SD Gothic Neo", Arial, sans-serif;
       letter-spacing: 0;
       background: #fff;
     }
@@ -206,16 +209,17 @@
     .quick-panel {
       position: absolute;
       z-index: 4;
-      left: 50%;
+      left: max(24px, calc((100vw - 1120px) / 2));
       bottom: -74px;
-      width: min(1120px, calc(100% - 48px));
+      width: calc(100vw - 48px);
+      max-width: 1120px;
       min-height: 126px;
       display: grid;
-      grid-template-columns: 1fr 230px 190px 190px;
+      grid-template-columns: minmax(0, 1fr) 230px 190px 190px;
       align-items: stretch;
       background: #fff;
       box-shadow: var(--shadow);
-      transform: translateX(-50%);
+      transform: none;
     }
 
     .hours,
@@ -992,6 +996,7 @@
         left: auto;
         bottom: auto;
         width: min(100% - 32px, 640px);
+        max-width: 640px;
         margin: -70px auto 0;
         grid-template-columns: 1fr 1fr;
         transform: none;
